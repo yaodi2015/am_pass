@@ -1,0 +1,95 @@
+@import "../../libs/flex.scss";
+@import "../../libs/media-queries.scss";
+@import "../../libs/config.scss";
+@import "../../libs/func.scss";
+.top-bg {
+    position : absolute;
+    top : 0;
+    left : 0;
+    width : 100%;
+    height : 5rem;
+    background-image: linear-gradient(-180deg, #FFFFFF 0%, #F4F4F4 100%);
+}
+@include phone {
+  .top-bg {
+     height : 4.46rem;
+  } 
+} 
+@include iphone6-plus {
+  .top-bg {
+     height : 3.8rem;
+  } 
+
+}
+@include iphone6 {
+  .top-bg {
+     height : 4.2rem;
+  } 
+}
+
+.main {
+    .gap {
+        width : 100%;
+        text-align : center;
+        height : 32px;
+        margin : 0px 0 20px;
+        img {
+            width : 18px;
+            height : 32px;
+        }
+    } 
+    .info {
+        .col {
+            height : 2.13rem; 
+            padding : 0;
+        }
+         @include pad() {
+            .col {
+                height : 1.47rem; 
+            }
+        }
+        @include phone() {
+            .col {
+                height : 1.24rem;
+            }
+        }
+
+        .act {
+            display : block;
+            height : 100%;
+            background-repeat: no-repeat;
+            text-align : center;
+            position : relative;
+            .txt {
+                width : 100%;
+                position : absolute;
+                left : 0;
+                bottom : 12px;
+                font-size : 14px;
+            }
+        }
+        .act1 {
+            background-image : url("#{$img_host}/info1@2x.png");
+            background-size : 100% 100%;
+            margin-right : 2px;
+        }
+        .act2 {
+            background-image : url("#{$img_host}/info2@2x.png");
+            background-size : 100% 100%;
+            margin-left : 2px;
+        }
+
+        @include phone {
+            .act1 {
+                margin : 0;
+                margin-top : 0.3rem;
+            }
+            .act2 {
+                margin : 0;
+                margin-top : 0.04rem;
+            }
+        }
+       
+
+    }
+}

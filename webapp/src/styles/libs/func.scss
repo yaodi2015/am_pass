@@ -1,0 +1,30 @@
+@mixin tile() {
+    position : absolute;
+    top : 0;
+    left : 0;
+    right : 0;
+    bottom : 0;
+}
+
+
+@mixin ratio-box($ratio) {
+    padding-top : $ratio;
+    position : relative;
+    .box {
+        @include tile();
+    }
+}
+
+@mixin phone() {
+  @media screen and (max-width: 667px) {
+     @content;
+   }
+}
+
+@mixin pad() {
+    @media screen and (min-width: 668px ) and (max-width: 960px) {
+      @content;
+    }
+}
+
+
