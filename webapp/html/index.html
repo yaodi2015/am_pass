@@ -1,42 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!--#set var="header_cls" value="" -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Bootrap Test</title>
+    <title>HOME</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../src/exports/index.css" type="text/css" charset="utf-8">
     <!--[if lt IE 9]>
       <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="../src/angular.min.js" ></script>
     <script src="../src/exports/common.js"></script>
   </head>
   <body>
-    <div class="top-bg">
-    </div>  
-    <header class="header">
-      <nav class="header-nav">
-        <span class="icon glyphicon glyphicon-menu-hamburger"></span>
-      </nav>
-      <div class="header-ct">
-        <div class="logo"></div>
-      </div>
-      <div class="header-rs">
-        <a  class="apply" href="#">apply</a>
-      </div>  
-    </header>
+    <!--#include file="header.html" -->
     <main class="main">
       <div class="m-swiper">
-        <div class="swiper-container">
+        <div class="swiper-container" id="swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="swp" >
                 <div class="swp-img">
-                  <div class="img-wrap">
-                    <img src="../images/img_1@2x.png">
+                  <div class="img-wrap img1">
                     <div class="img-bg"></div>
                   </div>
                 </div> 
@@ -46,7 +33,12 @@
                   <div class="t1">1000+美丽店VIP折扣</div>
                 </div>
                 <div class="swp-ct1">
-                  <div class="t2">无需家家办卡， 随时步入全国1000+ 精选明星店铺。王菲常去的SPA馆，Angelababy的御用发型屋，AMILY帮你打通全城VIP特权，低至5折。</div>
+                  <div class="g-clear">
+                    <div class="hhl2 visible-xs-block"></div>
+                    <div class="t2">
+                      无需家家办卡， 随时步入全国1000+ 精选明星店铺。王菲常去的SPA馆，Angelababy的御用发型屋，AMILY帮你打通全城VIP特权，低至5折。
+                    </div>
+                  </div>
                   <div class="num">
                     <span>1/3</span> 
                   </div>
@@ -54,13 +46,58 @@
                     <a href="#">More</a>
                   </div>  
                 </div>  
-                
               </div>
             </div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">
+              <div class="swp" >
+                <div class="swp-img">
+                  <div class="img-wrap img2">
+                    <div class="img-bg"></div>
+                  </div>
+                </div> 
+                <div class="swp-ct">
+                  <h3 class="tit">APPLY NOW</h3>
+                  <div class="hhl hidden-xs"></div>
+                </div>
+                <div class="swp-ct1">
+                  <div class="g-clear">
+                    <div class="hhl2 visible-xs-block"></div>
+                    <div class="t2"> 无需家家办卡， 随时步入全国1000+ 精选明星店铺。王菲常去的SPA馆，Angelababy的御用发型屋，AMILY帮你打通全城VIP特权，低至5折。</div>
+                  </div>
+                  <div class="num">
+                    <span>2/3</span> 
+                  </div>
+                  <div class="act">
+                    <a href="#">立即申请</a>
+                  </div>  
+                </div>  
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swp" >
+                <div class="swp-img">
+                  <div class="img-wrap img3">
+                    <div class="img-bg"></div>
+                  </div>
+                </div> 
+                <div class="swp-ct">
+                  <h3 class="tit">APPLICATION</h3>
+                  <div class="hhl hidden-xs"></div>
+                </div>
+                <div class="swp-ct1">
+                  <div class="g-clear">
+                    <div class="hhl2 visible-xs-block"></div>
+                    <div class="t2"> 让美丽轻奢无处不在, 轻触指尖，随时打造你的颜值竞争力。</div>
+                  </div>
+                  <div class="num">
+                    <span>3/3</span> 
+                  </div>
+                  <div class="act">
+                    <a href="#">DOWNLOAD NOW</a>
+                  </div>  
+                </div>  
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -82,19 +119,9 @@
         </div>  
       </div>  
     </main>  
-    <footer class="footer">
-      <ul class="fnav">
-        <li><a href="#">CONTACT</a></li>
-        <li><div class="gp"></div></li>
-        <li><a href="#">WECHAT @HIAMILY</a></li>
-        <li><div class="gp"></div></li>
-        <li><a href="#">©2016 AMILY CO., LTD.</a></li>
-      </ul>  
-      <p class="cmp">
-       www.hiamily.com 2015 © All Rights Reserved.京ICP备15011112号 
-      </p>
-    </footer>  
+   <!--#include file="footer.html" -->
+    
   </body>
+  <script src="//cc.amily.org/amy_com/scripts/ai_zepto.js" ></script>
   <script src="../src/exports/index.js"></script>
-  
 </html>

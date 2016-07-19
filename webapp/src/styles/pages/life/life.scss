@@ -1,0 +1,129 @@
+@import "../../libs/func.scss";
+@import "../../libs/flex.scss";
+@import "../../libs/config.scss";
+
+html ,body {
+    background-color : #F9F9F9;
+}
+
+.intro-box {
+    text-align : center;
+    margin-top : 0.3rem;
+    .tit {
+        font-size : 24px;
+        font-weight : lighter;
+        line-height : 1em;
+        em {
+            font-weight : normal;
+        }
+    }
+
+    .hhl {
+        margin : 0 auto;
+        margin-top : 10px;
+        background-color :#57FFD1;
+        width : 50px;
+        height : 3px;
+    }
+    .txt {
+        margin-top : 14px;
+        font-size : 12px;
+        line-height : 20px;
+    }
+}
+
+.detail-box {
+    padding-top : 0.3rem;
+    &-ct {
+        width : $pc_w; 
+        position : relative;
+        margin : 0 auto;
+        @include flexbox;
+        @include justify-content(space-between);
+        @include flex-wrap(wrap);
+    
+        @include pad {
+            width : 728px;
+        }
+
+        @include phone {
+            width : 100%;
+            @include justify-content(center);
+        }
+
+        .item {
+          position : relative;
+          width : 2.4rem;
+          height : 3.2rem;
+          background: #FFFFFF;
+          text-shadow: 0px 0px 34px rgba(255,255,255,0.50);
+          @include flex-grow(0);
+          margin-bottom : 40px;
+          .hover {
+            display : none;
+            position : absolute;
+            top : 0;
+            left : 0;
+            bottom : 0;
+            right : 0;
+            background : rgba(18, 19 ,19 ,0.9);
+          }
+          &:hover {
+            .hover {
+                display : block; 
+            }
+          }
+
+          @include pad {
+            margin-bottom : 30px;
+          }
+          @include phone {
+            margin-bottom : 30px;
+          }
+          
+          .img-box {
+            width : 2.4rem;
+            height : 1.4rem;
+            overflow : hidden;
+            img {
+                width : 100%; 
+            }
+          }
+          .brief {
+            padding : 10px;
+          }
+          .tit {
+            margin-top : 10px;
+            font-weight : normal;
+            font-size : 24px;
+            line-height : 1em;
+          }
+          .hicon {
+            margin-top : 10px;
+            width : 34px;
+            height : 12px;
+            background : url("#{$img_host}/hicon@2x.png") no-repeat 0 0;
+            background-size : 100% 100%;
+          }
+          .txt {
+            margin-top : 10px;
+          }
+
+        }
+    }
+}
+.ai-pager {
+    text-align : center;
+    margin-top : 52px;
+    margin-bottom :68px;
+    font-family : "Lucida Bright";
+    li {
+        display : inline-block;
+        line-height : 1em;
+        margin : 0 22px;
+        font-size : 20px;
+        @include phone {
+           margin : 0 10px;
+        }
+    }
+}

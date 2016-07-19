@@ -1,0 +1,234 @@
+@import "../../libs/flex.scss";
+@import "../../libs/media-queries.scss";
+@import "../../libs/func.scss";
+@import "../../libs/config.scss";
+
+.pass-info {
+    padding-bottom : 1.2rem;
+    @include pad {
+        padding-bottom : .78rem;
+    }
+    @include phone {
+        margin-top : 0.1rem;
+        padding-bottom : 0;
+    }
+    .info-item {
+        width : 100%;
+        @include phone {
+            margin-bottom : 0.2rem;
+        }
+    } 
+    .info {
+        margin : 0 auto;
+        width : 8.24rem; 
+        @include clearfix;
+        position : relative;
+
+        @include pad {
+            width : 7.28rem; 
+        }
+        @include phone {
+            width : 100%;
+            height : auto !important;
+        }
+
+        .tit {
+            font-size : 24px;
+            font-weight : normal;
+        }
+        .hhl {
+            margin-top : 10px;
+            background-color :#57FFD1;
+            width : 50px;
+            height : 3px;
+        }
+        .t1 {
+            margin-top : 14px;
+            font-size : 14px;
+            line-height : 24px;
+            font-weight : lighter;
+        }
+
+
+        .img {
+            width : 6.37rem;
+            height : 4.03rem;
+            box-shadow: 0px 20px 50px 0px rgba(0,0,0,0.20);
+
+            @include pad {
+                width : 5.06rem;
+                height : 3.2rem;
+            }
+
+            @include phone {
+                position :static !important;
+                margin : 0 auto;
+                width : 3rem !important;
+                height : 1.9rem !important;
+                box-shadow : none;
+            }
+        }
+        
+
+        .lbicon {
+            margin-top : 0.1rem;
+            img{ width : 100%;}
+        }
+        .lbicon1 { width : .95rem; }
+        .lbicon2 { width : .6rem; }
+        .lbicon3 { width : .6rem; }
+        .lbicon8 { width : .3rem; }
+
+        $pc_img : (
+            img1 : 6.37rem,
+            img2 : 5.98rem,
+            img3 : 5.98rem,
+            img4 : 5.98rem,
+            img5 : 5.98rem,
+            img6 : 5.98rem,
+            img7 : 4.76rem,
+            img8 : 5.25rem
+        );
+        $pad_img : (
+            img1 : 5.06rem,
+            img2 : 4.75rem,
+            img3 : 4.75rem,
+            img4 : 4.75rem,
+            img5 : 4.75rem,
+            img6 : 4.75rem,
+            img7 : 3.78rem,
+            img8 : 4.17rem
+        );
+
+        $ct-width : (
+            ct1 : 2.84rem,
+            ct2 : 2.84rem,
+            ct3 : 2.84rem,
+            ct4 : 2.84rem,
+            ct5 : 2.84rem,
+            ct6 : 2.84rem,
+            ct7 : 4.35rem,
+            ct8 : 3.55rem
+        );
+
+
+        @for $i from 1 through 8 {
+            .img#{$i} {
+                width : map-get($pc_img, img#{$i});
+                background : url("#{$img_host}/pc_pd_img_#{$i}.jpg")  no-repeat 0 0;
+                background-size : 100% 100%;
+            }
+            .ct#{$i} {
+                width : map-get($ct-width, ct#{$i}) !important;
+            }
+            @include pad {
+                .img#{$i} {
+                    width : map-get($pad_img, img#{$i});
+                    background : url("#{$img_host}/pad_pd_img_#{$i}.jpg")  no-repeat 0 0;
+                    background-size : 100% 100%;
+                }
+            }
+            @include phone {
+                .img#{$i} {
+                    background : url("#{$img_host}/phone_pd_img_#{$i}.jpg")  no-repeat 0 0;
+                    background-size : 100% 100%;
+                }
+            }
+        }
+
+        .ct {
+            @include phone {
+              position :static !important;
+              margin : 0 auto;
+              margin-top : 0.1rem;
+              width : 3rem !important;
+              height : auto !important;
+            }
+        }
+
+        
+    }
+
+    .even {
+        .info {
+            height : 5rem;
+            @include pad {
+                height : 3.75rem;
+            }
+            @include phone {
+                height : auto;
+            }
+        }
+        .ct {
+            position : absolute;
+            top : 1.2rem;
+            left : 0;
+            width : 3rem;
+            height : 4.03rem; 
+            z-index : 10;
+            @include flexbox;
+            @include flex-direction(column);
+            @include justify-content(center);
+            @include pad{
+                height : 3.2rem; 
+                top : .78rem;
+            }
+
+        } 
+        .img {
+            position : absolute;
+            right : 0;
+            top : 1.2rem;
+            @include pad{
+                top : .78rem;
+            }
+        }
+        
+    }
+    .odd {
+        background : url("#{$img_host}/info-bg@2x.jpg") repeat 0 0;
+        background-size : 100%;
+
+        @include phone {
+            background : none;
+        }
+
+        .info {
+            height : 5rem;
+            @include pad {
+                height : 3.75rem;
+            }
+        }
+
+
+             .img {
+                position : absolute;
+                left : 0;
+                top : 1.2rem;
+                @include pad {
+                    top : 0.78rem;
+                }
+            }
+
+
+            .ct {
+                position : absolute;
+                right : 0;
+                top : 1.2rem;
+                width : 3rem;
+                height : 4.03rem; 
+                z-index : 10;
+                @include flexbox;
+                @include flex-direction(column);
+                @include justify-content(center);
+                @include pad{
+                    height : 3.2rem; 
+                    top : 0.78rem;
+                }
+
+            }  
+
+    }
+
+
+}

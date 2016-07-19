@@ -6,13 +6,19 @@
 .m-swiper {
     margin-top : 60px;
     width : 100%; 
+    height : 3.8rem;
+    background-image: linear-gradient(-180deg, #FFFFFF 0%, #F4F4F4 100%);
+
+    @include phone {
+        height : auto;
+    }
 
     .swiper-container {
         width : 100%;
-        height : 450px;
+        height : 4.5rem;
     } 
     .swiper-slide {
-        height : 403px;
+        height : 4.03rem;
     }
     .swp {
         position : relative;
@@ -22,11 +28,11 @@
     }
     @include pad {
         .swiper-container {
-            height : 400px;
+            height : 4rem;
         }
         .swp {
             width : $pad_w; 
-            height : 380px;
+            height : 3.8rem;
         }
     }
     @include phone {
@@ -62,6 +68,7 @@
             width : 50px;
             height : 3px;
         }
+       
         .t1 {
             font-size : 16px;
             line-height : 22px;
@@ -75,7 +82,15 @@
         padding-left : 20px;
         padding-top : 20px;
         width : 420px;
+        .hhl2 {
+            height : 36px;
+            width : 3px;
+            background-color : #57FFD1;
+            float : left;
+            margin-right : 0.1rem;
+        }
         .t2 {
+            overflow : hidden;
             font-size : 12px;
             font-weight : light;
             margin-top : 10px;
@@ -119,6 +134,27 @@
                 width : 100%;
             }
         }
+        
+        @for $i from 1 through 5 {
+            .img#{$i} {
+                background : url("#{$img_host}/pc_img_#{$i}.jpg")  no-repeat 0 0;
+                background-size : 100% 100%;
+            }
+            @include pad {
+              .img#{$i} {
+                background : url("#{$img_host}/pad_img_#{$i}.jpg")  no-repeat 0 0;
+                background-size : 100% 100%;
+              }
+            }
+            @include phone {
+              .img#{$i} {
+                background : url("#{$img_host}/phone_img_#{$i}.jpg")  no-repeat 0 0;
+                background-size : 100% 100%;
+              }
+            }
+        }
+
+
         @include pad() {
             .img-wrap {
                 right : 0.2rem;
@@ -127,6 +163,7 @@
             }
         }
     }
+
 
     @include phone {
         .swp-ct {
@@ -171,7 +208,7 @@
                 position : static;
                 width : 100%;
                 box-shadow : none;
-                height : auto;
+                height : 1.58rem;
             }
         }
     }

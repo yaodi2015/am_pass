@@ -1,0 +1,226 @@
+@import "../../libs/flex.scss";
+@import "../../libs/media-queries.scss";
+@import "../../libs/func.scss";
+@import "../../libs/config.scss";
+
+
+.apply-box {
+    margin : 0 auto;
+    margin-top : 120px;
+    width : 824px;
+    overflow : hidden;
+    @include pad {
+        width : 728px;
+    }
+    @include phone {
+        margin-top : 0.5rem;
+    }
+    
+    .apply-ct {
+        float : right;
+        width : 323px;
+        @include phone {
+            width : 3.2rem;
+            float : none;
+            padding : 0 0.1rem;
+        }
+        .tit {
+            font-size : 24px;
+            line-height : 1em;
+            font-weight : normal;
+        }
+
+        .hhl {
+            margin-top : 10px;
+            background-color :#121313;
+            width : 50px;
+            height : 3px;
+        }
+        .txt {
+            margin-top : 18px;
+            font-size : 14px;
+            line-height : 20px;
+        }
+        .act {
+            background: #121313;
+            border-radius: 2px;
+            color : #fff;
+            text-align : center;
+            width : 100%;
+            height : 0.5rem;
+            line-height : 0.5rem;
+            margin-top : 30px;
+            a {
+                font-size : 16px;
+                color : #fff;
+                font-weight : lighter;
+                text-decoration : none;
+            }
+
+            @include phone {
+                display : none;
+            }
+        }
+
+        .apply-types {
+            overflow : hidden;
+            li {
+                margin-top : 20px;
+                width : 100%;
+                height : 80px;
+                @include flexbox;
+                border:  1px solid #B4B4B5;
+                &.plat {
+                    i {
+                        background : url("#{$img_host}/apply_type_icon1@2x.png") no-repeat 0 0;
+                        background-size : 100% 100%;
+                    }
+                }
+                &.diva {
+                    i {
+                        background : url("#{$img_host}/apply_type_icon2@2x.png") no-repeat 0 0;
+                        background-size : 100% 100%;
+                    }
+                }
+                &.selected {
+                    border : 2px solid #121313;
+                }
+                .ct {
+                    @include flexbox();
+                    @include flex-direction(column);
+                    @include justify-content(center);
+                    @include flex-grow(1);
+
+                    .type {
+                        font-size : 16px;
+                        em {
+                            font-weight : lighter;
+                        }
+                    }
+                    .type-dt {
+                        @include flexbox();
+                        @include justify-content(space-between);
+                        font-size : 14px;
+                        margin-top : 5px;
+                        padding-right : 20px;
+                        .type-ds , .type-txt {
+                            color : #888;
+                        }
+                    }
+                }
+
+
+            }
+            .icon {
+               width : 64px;
+               height : 80px;
+               line-height : 80px;
+               text-align : center;
+               
+               i {
+                vertical-align : middle;
+                display : inline-block;
+                width : 30px;
+                height : 30px;
+               }   
+            }
+        }
+
+    }
+
+    .apply-imgbox {
+        float : left;
+        width : 471px;
+        .img {
+            width :100%;
+            height : 320px;
+            overflow : hidden;
+            img {
+                width : 100%;
+            }
+        }
+        @include pad {
+            width : 387px;
+            .img {
+                width :100%;
+                height : 263px;
+            }
+        }
+        @include phone {
+            float : none;
+            width : 3.2rem;
+            margin-top : 0.2rem;
+            .img {
+                width :100%;
+                height : 2.17rem;
+            }
+            .img-ct {
+                padding : 0 0.1rem;
+            }
+
+        }
+
+        .tit {
+            margin-top : 36px;
+            font-size : 18px;
+            font-weight : lighter;
+            line-height : 1em;
+            em {
+                font-weight : normal;
+            }
+
+            @include phone {
+                margin-top : 0.16rem;
+            }
+        }
+
+        .hhl {
+            margin-top : 10px;
+            background-color :#57FFD1;
+            width : 50px;
+            height : 3px;
+        }
+        .txt {
+            margin-top : 14px;
+            font-size : 12px;
+            line-height : 20px;
+        }
+
+        .act {
+            /* Rectangle 97: */
+            background: #121313;
+            border-radius: 2px;
+            color : #fff;
+            font-weight : lighter;
+            text-align : center;
+            width : 3rem;
+            height : 0.5rem;
+            line-height : 0.5rem;
+            display : none;
+            margin : 0 auto;
+            margin-top : 1.2rem;
+            margin-bottom : 0.1rem;
+            @include phone {
+                display : block;
+
+                a {
+                    font-size : 16px;
+                    color : #fff;
+                    font-weight : lighter;
+                    text-decoration : none;
+                }
+
+            } 
+        }
+
+
+
+    }
+
+}
+
+@include phone {
+    .footer {
+        display : none;
+    }
+}

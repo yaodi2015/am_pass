@@ -1,0 +1,48 @@
+@import "../../libs/flex.scss";
+@import "../../libs/media-queries.scss";
+@import "../../libs/func.scss";
+@import "../../libs/config.scss";
+
+
+.copr-shop {
+    width : 100%;
+    margin-top : 0.2rem;
+    .tit {
+        font-size : 24px;
+        text-align : center;
+        margin : 0 auto;
+        @include phone {
+            width : 180px;
+        }
+    }
+    .sub-tit {
+        font-size : 14px;
+        margin-top : 0.05rem;
+        line-height : 24px;
+        text-align : center;
+    }
+
+    .shop-imgs {
+        width : 100%;
+        .img-wrap {
+            background : url("#{$img_host}/pc_shop_logos@2x.jpg") no-repeat 0 0;
+            background-size : 100% 100%;
+            width : 8.24rem; 
+            height : 2rem;
+            margin : 10px auto 0;
+
+            @include pad {
+                background : url("#{$img_host}/pad_shop_logos@2x.jpg") no-repeat 0 0;
+                background-size : 100% 100%;
+                width : 6.88rem; 
+                height : 1.6rem;
+            }
+            @include phone {
+                background : url("#{$img_host}/phone_shop_logos@2x.jpg") no-repeat 0 0;
+                background-size : 100% 100%;
+                width : 3rem; 
+                height : .77rem;
+            }
+        }
+    }
+}

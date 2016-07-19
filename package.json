@@ -7,10 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browserify": {
-    "transform": [ "browserify-shim" ]
+    "transform": [
+      "browserify-shim"
+    ]
   },
   "browserify-shim": {
-      "angular": "global:angular"
+    "angular": "global:angular",
+    "jQuery": "global:jQuery"
   },
   "author": "",
   "license": "ISC",
@@ -18,5 +21,8 @@
     "angular": "^1.5.7",
     "browserify": "^13.0.1",
     "browserify-shim": "^3.8.12"
+  },
+  "devDependencies": {
+    "angular-route": "^1.5.7"
   }
 }

@@ -1,0 +1,81 @@
+@import '../styles/libs/reset.scss';
+@import '../styles/libs/swiper.scss';
+@import '../styles/mods/header.scss';
+@import '../styles/mods/main.scss';
+@import '../styles/mods/footer.scss';
+
+
+.news-dt-box {
+    width : 940px;
+    margin : 0 auto;
+    margin-top : 20px;
+    overflow : hidden;
+    .news-dt {
+        width : 960px;
+    }
+    @include pad{
+        width : 620px;
+        .news-dt {
+            width : 640px;
+        } 
+    };
+    @include phone{
+        width : 3rem;
+        .news-dt {
+            width : 3rem;
+        }
+    };
+    .item {
+        width : 300px;
+        margin-right : 20px;
+        margin-bottom : 20px;
+        padding-bottom : 10px;
+        border-bottom : 2px solid #EAEAEA;
+        @include phone {
+            margin-right : 0;
+        }
+
+
+        .img-box {
+            width : 3rem;
+            height : 1.9rem;
+            overflow : hidden;
+            /* Rectangle 54 Copy 11: */
+            background-color : #ccc;
+            img {
+                width : 100%; 
+            }
+          }
+          .tit {
+            white-space: break-word; 
+            margin-top : 10px;
+            font-weight : normal;
+            font-size : 24px;
+            line-height : 33px;
+          }
+          .hhl {
+              margin-top : 15px;
+              background-color :#57FFD1;
+              width : 50px;
+              height : 3px;
+          }
+          .txt {
+            font-size : 12px;
+            margin-top : 15px;
+          }
+          .sub {
+            @include flexbox;
+            @include justify-content(space-between);
+            margin-top : 10px;
+            font-size : 12px;
+            .date {
+                color : #4FD8C0;    
+            }
+            .auth {
+            
+            }
+          }
+
+
+    }
+}

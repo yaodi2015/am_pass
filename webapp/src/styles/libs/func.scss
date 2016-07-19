@@ -6,6 +6,15 @@
     bottom : 0;
 }
 
+@mixin clearfix {
+
+    &::after {
+        display: block;
+        overflow: hidden;
+        clear: both;
+        height: 0;
+        content: "\0020"; }
+}
 
 @mixin ratio-box($ratio) {
     padding-top : $ratio;
@@ -25,6 +34,18 @@
     @media screen and (min-width: 668px ) and (max-width: 960px) {
       @content;
     }
+}
+
+@mixin small-set() {
+  @media screen and (max-width: 960px) {
+     @content;
+   }
+}
+
+@mixin lg-set() {
+  @media screen and (min-width: 960px) {
+     @content;
+  }
 }
 
 
