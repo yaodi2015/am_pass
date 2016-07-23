@@ -1,0 +1,90 @@
+@import "../../libs/func.scss";
+.phone-view {
+    .info {
+        padding-top : 0.4rem;
+    }
+    .view-content {
+        width : 300px;
+        margin : 0 auto;
+    }
+    .tit {
+        font-size : 18px;
+        line-height : 1em;
+    }
+
+    .hhl {
+        margin-top : 10px;
+        background-color :#57FFD1;
+        width : 50px;
+        height : 3px;
+    }
+    .txt {
+        margin-top : 10px;
+        font-size : 14px;
+        line-height : 24px;
+        font-weight : lighter;
+    }
+    .inp {
+        width : 300px;
+        height : 50px;
+        line-height : 50px;
+        font-size : 16px;
+        font-weight : bold;
+        font-family: NexaBold;
+    }
+    @include phone {
+        .info {
+            padding-top : 20px;
+        }
+        .tit, .txt {
+            text-align : center;
+        }
+        .hhl {
+            margin-right : auto;
+            margin-left : auto;
+        }
+        .inp {
+            text-align : center;
+        }
+    }
+    .pn-box , .code-box {
+        margin-top : 20px;
+    }
+    .pn-box {
+        overflow : hidden;
+        .inp {
+            width : 220px;
+            float : left;
+        }
+        .send-code {
+            float : left;
+            border : 0px;
+            background-color : #57FFD1;
+            width : 80px;
+            height : 50px;
+            font-size : 16px;
+            line-height :50px;
+            
+        }
+    }
+    .act-box {
+        margin-top : 0.4rem;
+        text-align : center;
+        .act {
+            border : 0;
+            font-size: 16px;
+            line-height: 50px;
+            width : 300px;
+            height: 50px;
+            background-color: #121313;
+            text-align: center;
+            color : #fff;
+        }
+        @include phone {
+            position : fixed;
+            margin : 0 auto;
+            bottom : 10px;
+        }
+    }
+ 
+}

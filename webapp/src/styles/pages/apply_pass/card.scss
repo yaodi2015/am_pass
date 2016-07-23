@@ -1,0 +1,171 @@
+@import "../../libs/func.scss";
+@import "../../libs/flex.scss";
+@import "../../libs/config.scss";
+.card-view {
+
+    .view-content {
+        width : 824px;
+        overflow : hidden;
+        margin : 0 auto;
+        @include flexbox;
+        @include justify-content(space-between);
+        @include pad {
+            width : 728px;
+        }
+
+        @include phone {
+            width : 3rem; 
+            @include justify-content(center);
+        }
+
+        .lf-ct {
+            float : left;
+            width : 504px;
+            @include pad(){
+                width : 409px;
+            };
+            @include phone(){
+                display : none;
+            };
+            @include flexbox;
+            @include flex-direction(column);
+            @include justify-content(center);
+            .img-box {
+                .img {
+                    background : url("#{$img_host}/pass_card_pc@2x.jpg") no-repeat 0 0;
+                    background-size : 100%;
+                    width : 504px;
+                    height : 314px;
+                }
+                @include pad {
+                    .img {
+                        background : url("#{$img_host}/pass_card_pad@2x.jpg") no-repeat 0 0;
+                        background-size : 100%;
+                        width : 409px;
+                        height : 256px;
+                    }
+                }
+            }
+
+        }
+        .m-ct {
+            overflow : hidden;
+        }
+        
+        .info {
+            padding-top : 20px;
+            .tit {
+                font-size : 18px;
+                line-height : 1em;
+            }
+
+            .hhl {
+                margin-top : 10px;
+                background-color :#57FFD1;
+                width : 50px;
+                height : 3px;
+            }
+            .txt {
+                margin-top : 10px;
+                font-size : 14px;
+                line-height : 24px;
+                font-weight : lighter;
+            }
+        
+        }
+
+        @include phone {
+            .info {
+                padding-top : 20px;
+            }
+            .tit, .txt {
+                text-align : center;
+            }
+            .hhl {
+                margin-right : auto;
+                margin-left : auto;
+            }
+            .inp {
+                text-align : center;
+            }
+        }
+
+
+        .card-ct {
+            margin-top : 20px; 
+            margin-bottom : 20px;
+            .card-no {
+                width : 300px;
+                height : 50px;
+                line-height : 50px;
+                font-size : 16px;
+                font-weight : bold;
+                border : 1px solid #B4B4B5;
+                text-align : center;
+                font-family: NexaBold;
+                letter-spacing: 0.8px;
+                margin-bottom : 10px;
+            }
+            .act-box {
+                margin-top : 30px;
+            }
+            .change .act{ 
+                border : 0;
+                font-size: 16px;
+                line-height: 40px;
+                width : 300px;
+                height: 40px;
+                background-color: #EAEAEA;
+                text-align: center;
+                color : #262626;
+
+            
+            }
+        }
+        .name-box {
+            padding-bottom : 30px;
+            .name {
+                margin-top: 10px;
+            }
+            .inp {
+                width : 300px;
+                height : 50px;
+                text-align : center;
+            }
+            .img-box {display : none};
+
+            @include phone {
+                .img-box {
+                    display : block;
+                    .img {
+                        background : url("#{$img_host}/pass_card_phone@2x.jpg") no-repeat 0 0;
+                        background-size : 100% 100%;
+                        width : 320px;
+                        height : 200px;
+                    }
+                }
+            } 
+             .act-box {
+                margin-top : 20px;
+                text-align : center;
+                .act {
+                    border : 0;
+                    font-size: 16px;
+                    line-height: 50px;
+                    width : 300px;
+                    height: 50px;
+                    background-color: #DBDCDC;
+                    text-align: center;
+                    color : #B4B4B5;
+                }
+                .act-use {
+                    background-color: #121313;
+                    color : #fff;
+                }
+        }
+
+        }
+    }
+
+    
+}

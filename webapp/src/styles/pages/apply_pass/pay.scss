@@ -1,0 +1,169 @@
+@import "../../libs/flex.scss";
+@import "../../libs/config.scss";
+@import "../../libs/func.scss";
+@import "../../libs/css3-mixins.scss";
+
+.pay-view {
+    
+
+    .radio-box {
+        color : #B4B4B5;
+        .icon {
+            text-align : center;
+            .i {
+                display : inline-block;
+                width : 16px;
+                height : 16px;
+                background : url("#{$img_host}/nav_icon@2x.png") no-repeat 0 0; 
+                background-size : 53px 16px;
+            } 
+        }
+        .tt {
+            line-height : 16px;
+            margin-left : 10px;
+        }
+
+        &.selected {
+            color : #121313;
+            .icon i {
+                background : url("#{$img_host}/nav_icon@2x.png") no-repeat right 0; 
+                background-size : 53px 16px;
+            }
+        }
+
+    }
+
+
+
+    .pay-box {
+        border-bottom : 1px solid #DBDCDC;
+        padding-bottom : 20px;
+        .tit {
+            font-size : 14px;
+            font-weight : bold;
+            padding : 20px 0;
+        }
+    }
+
+
+    .pay-dt , .pay-way {
+        width : 824px;
+        margin : 0 auto;
+        @include pad(){
+            width : 728px;
+        };
+        @include phone(){
+            width : 3rem;
+        };
+    
+    }
+
+    .pay-dt {
+        overflow : hidden;
+        .lf {
+            float : left;
+        }
+        .rt {
+            float : right;
+            padding-top : 20px;
+            li {
+                width : 3rem;
+                height : 30px;
+                line-height : 30px;
+                border-bottom:  1px solid #DBDCDC;
+                @include flexbox;
+                @include justify-content(space-between);
+                .t1 {
+                    color : #888888; 
+                }
+                .t2 {
+
+                }
+            }
+
+        }
+       .prd-ct {
+            .img {
+                float : left;
+                margin-right : 10px;
+            }
+            .ct {
+                overflow : hidden;
+                line-height : 24px;
+                .tt {
+                    font-size : 16px;
+                    font-weight : normal;
+                    em {
+                        font-weight : lighter;
+                    }
+                }
+
+                .txt {
+                    color : #888;
+                    font-weight : lighter;
+                }
+            }
+            img {
+                width : 96px;
+                height : 58px;
+            }
+        }
+    }
+    .pay-amount {
+        overflow : hidden;
+        padding : 20px 0;
+        .t1  {
+            color : #888;
+            float : left;
+        }
+        .money {
+            float : right;
+            font-weight : bold;
+            font-size : 20px;
+        }
+    }
+    .pay-w {
+        .tt {
+            font-weight : bold;
+        }
+        ul {
+            overflow : hidden;
+            margin-top : 20px;
+        }
+        li {
+            float : left;
+            width : 200px;
+            height : 50px;
+            @include flexbox;
+            @include justify-content(center);
+            @include align-items(center);
+            border : 1px solid #B4B4B5;
+            margin-right : 20px;
+            &.selected {
+                border : 2px solid #121313;
+            }
+
+            .pay-icon {
+                display : inline-block;
+                width : 18px;
+                height : 15px;
+                background : url("#{$img_host}/pay_w@2x.png") no-repeat 0 0;
+                background-size : 55px 15px;
+                margin-right : 12px;
+            }
+            .radio-box {
+                padding-top : 5px;
+                margin-left : 20px;
+            }
+
+            &.zfb {
+              .pay-icon {
+                background : url("#{$img_host}/pay_w@2x.png") no-repeat right 0;
+                background-size : 55px 15px;
+              }
+            }
+            
+        }
+    }
+
+}
