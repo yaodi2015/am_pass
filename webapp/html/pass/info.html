@@ -1,19 +1,26 @@
-<div class="m-view info-view hide">
+<div class="m-view info-view ">
   <div class="info-nav">
     <!--#include file="nav.html" -->
   </div>  
   <div class="view-content">
+    <form name="infoForm" novalidate>
     <div class="base-info-box">
       <div class="base-info">
           <div class="item-row">
             <div class="item username">
-              <div class="lb">姓名</div>
+              <div class="lb">姓名*</div>
               <div class="ct">
-                <input type="text" name=""  value="">  
-                <div class="sex-it">
-                  <a href="javascript:;">女士</a>
-                  <a href="javascript:;">先生</a>
-                </div>  
+                <input type="text" 
+                ng-required="true"  
+                ng-maxlength="20"
+                ng-model="name"  name="name" value="" >  
+                <span ng-show="infoForm.name.$dirty && infoForm.name.$error.required"><p class="validation-invalid">姓名不能为空</p></span>
+                <span ng-show="infoForm.name.$dirty && infoForm.name.$error.maxlength"><p class="validation-invalid">姓名长度不能超过20个字</p></span>
+                
+                <div class="sex-it" ng-class="{ 1 : 'woman'  , 2: 'man'  }[sex]" ng-model="sex" ng-click="selectSex($event);"  >
+                  <a href="javascript:;" class="sex1" data-sex=1  >女士</a>
+                  <a href="javascript:;" class="sex2" data-sex=2 >先生</a>
+                </div>
               </div>
             </div>  
           </div>
@@ -21,28 +28,45 @@
             <div class="item brithday">
               <div class="lb">生日*（用于发放会员生日福利）</div>
               <div class="ct">
-                <input type="text" name="" value="" >
+                <datepicker date-format="yyyy-MM-dd">
+                <input type="text"  ng-model="birthday" name="birthday" value="" 
+                ng-required="true"  
+                ng-pattern="/^\d\d\d\d\-\d\d\-\d\d$/"
+                >
+                <span ng-show="infoForm.birthday.$dirty && infoForm.birthday.$error.required"><p class="validation-invalid">生日不能为空</p></span>
+                <span ng-show="infoForm.birthday.$dirty && infoForm.birthday.$error.pattern"><p class="validation-invalid">生日需要是YYYY-MM-DD格式</p></span>
+                </datepicker>
               </div>  
             </div>  
             <div class="item addr">
               <div class="lb">常居地*</div>
-              <div class="ct">
-                <input type="text" name="" value="">
+              <div class="ct select-box">
+                <select ng-model="longHabitat" name="longHabitat">
+                  <option value="北京">北京</option>
+                  <option value="上海">上海</option>
+                </select>
+                <!-- input type="text" ng-model="longHabitat" value="" -->
               </div>  
             </div>  
           </div>  
           <div class="item-row ">
               <div class="item active">
                 <div class="lb">活动区域</div>
-                <div class="ct">
-                </div>
+                <div class="ct g-clear">
+                  <i class="right-arrow" ng-click="showActArea($event);"></i>
+                  <div class="area">
+                    <span ng-repeat="act_area in actArea track by $index" class="area-item">{{act_area}}</span>
+                  </div>
               </div>
           </div>  
           <div class="item-row">
             <div class="item">
               <div class="lb">电子邮件</div>
               <div class="ct">
-                  <input type="text" name="" value="">
+                <input type="text" name="email" 
+                ng-pattern="/^[a-zA-Z0-9.!#$%&amp;'*+\-\/=?\^_`{|}~\-]+@[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*$/"
+                ng-model="email" value="">
+                <span ng-show="infoForm.email.$dirty && infoForm.email.$error.pattern"><p class="validation-invalid">邮件格式错误</p></span>
               </div>
             </div>
           </div>  
@@ -50,7 +74,13 @@
             <div class="item">
               <div class="lb">移动电话*</div>
               <div class="ct">
-                  <input type="text" name="" placeholder="请填写*必要信息，谢谢!" class="phone" value="">
+                <input type="text" ng-model="phone" class="phone-inp" 
+                  name = "phone"
+                  ng-required="true"  
+                  ng-pattern="/^(13|15|17|18|14)\d{9}$/"
+                placeholder="请填写*必要信息，谢谢!" class="phone" value="">
+                <span ng-show="infoForm.phone.$dirty && infoForm.phone.$error.required"><p class="validation-invalid">移动电话不能为空</p></span>
+                <span ng-show="infoForm.phone.$dirty && infoForm.phone.$error.pattern"><p class="validation-invalid">移动电话格式错误</p></span>
               </div>  
             </div>  
           </div>  
@@ -63,13 +93,19 @@
           <div class="item mail-name">
             <div class="lb">收件姓名</div>
             <div class="ct">
-              <input type="text" name="" value="" >
+              <input type="text" name="recipients"  ng-model="recipients" value=""
+                ng-maxlength="20"
+              >
+              <span ng-show="infoForm.recipients.$dirty && infoForm.recipients.$error.maxlength"><p class="validation-invalid">收件姓名不能超过20个字</p></span>
             </div>  
           </div>  
           <div class="item mail-tel">
             <div class="lb">收件电话</div>
             <div class="ct">
-              <input type="text" name="" value="">
+              <input type="text"  ng-model="receivePhone"  name="receivePhone" value=""
+                  ng-pattern="/^(13|15|17|18|14)\d{9}$/"
+              >
+              <span ng-show="infoForm.receivePhone.$dirty && infoForm.receivePhone.$error.pattern"><p class="validation-invalid">收件电话格式错误</p></span>
             </div>  
           </div>  
         </div> 
@@ -77,7 +113,11 @@
           <div class="item">
             <div class="lb">收件地址</div>
             <div class="ct">
-              <input type="text" name="" value="">
+              <input type="text"  
+              ng-model="receiveAddress" name="receiveAddress" value=""
+              ng-maxlength="150"
+              >
+              <span ng-show="infoForm.receiveAddress.$dirty && infoForm.receiveAddress.$error.maxlength"><p class="validation-invalid">收件地址不能超过150个字</p></span>
             </div>
           </div>  
         </div>  
@@ -99,11 +139,11 @@
             1. 您属于敏感体质吗？
             </div> 
             <div class="tt-ct mingan">
-              <div class="radio-box selected">
+              <div class="radio-box" ng-class="{ 0 : 'selected'}[sensitive]"   ng-click="selectYesSens($event, 0)">
                 <div class="icon"><i class="i"></i></div>   
                 <div class="tt">是</div>
               </div>
-              <div class="radio-box">
+              <div class="radio-box" ng-class="{ 1 : 'selected'}[sensitive]"  ng-click="selectYesSens($event, 1)">
                 <div class="icon"><i class="i"></i></div>   
                 <div class="tt">否</div>
               </div>
@@ -114,7 +154,11 @@
             2. 如果是会有哪些敏感症状？
             </div> 
             <div class="tt-ct">
-              <input type="text"  name="" class="" value="" />
+              <input type="text"  ng-model="sensitiveSymptom" 
+              name="sensitiveSymptom"
+              ng-maxlength="200"
+              value="" />
+              <span ng-show="infoForm.sensitiveSymptom.$dirty && infoForm.sensitiveSymptom.$error.maxlength"><p class="validation-invalid">症状描述不能超过200个字</p></span>
             </div>  
           </li>
           <li class="mt">
@@ -122,15 +166,15 @@
              3. 您的生育状态是？
             </div> 
             <div class="tt-ct shengyu">
-              <div class="radio-box selected">
+              <div class="radio-box" ng-click="selectHuaiYun($event, 1)"  ng-class="{ 1 : 'selected'}[fertilityState]">
                 <div class="icon"><i class="i"></i></div>   
                 <div class="tt">有孩子</div>
               </div>
-              <div class="radio-box">
+              <div class="radio-box"  ng-click="selectHuaiYun($event, 2)"  ng-class="{ 2 : 'selected'}[fertilityState]">
                 <div class="icon"><i class="i"></i></div>   
                 <div class="tt">怀孕</div>
               </div>
-              <div class="radio-box">
+              <div class="radio-box"  ng-click="selectHuaiYun($event, 3)"  ng-class="{ 3 : 'selected'}[fertilityState]">
                 <div class="icon"><i class="i"></i></div>   
                 <div class="tt">没有孩子</div>
               </div>
@@ -141,11 +185,13 @@
              4. 你有某些重要的医疗病史需要和我们披露的吗？
             </div> 
             <div class="tt-ct">
-              <input type="text"  name="" class="" value="" />
+              <input type="text"  
+               name="medicalHistory"
+              ng-maxlength="200"
+              ng-model="medicalHistory" class="" value="" />
+              <span ng-show="infoForm.medicalHistory.$dirty && infoForm.medicalHistory.$error.maxlength"><p class="validation-invalid">医疗史不能超过200个字</p></span>
             </div> 
-
           </li>
-
         </ol>  
       </div>
     </div>
@@ -155,11 +201,11 @@
           <span>*为必填选项</span>
         </div>
         <div class="acts">
-          <button class="act last-step">上一步</button>
-          <button class="act submit">提交订单</button>
+          <button class="act last-step" ng-click="lastStep()">上一步</button>
+          <button class="act submit" ng-click="submitOrder(infoForm)">提交订单</button>
         </div>  
       </div>  
     </div>  
+    </form>
   </div>
-
 </div>

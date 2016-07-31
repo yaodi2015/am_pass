@@ -4,7 +4,7 @@
 @import "../../libs/css3-mixins.scss";
 
 .pay-view {
-    
+
 
     .radio-box {
         color : #B4B4B5;
@@ -53,7 +53,7 @@
             width : 728px;
         };
         @include phone(){
-            width : 3rem;
+            width : 300px;
         };
     
     }
@@ -67,7 +67,7 @@
             float : right;
             padding-top : 20px;
             li {
-                width : 3rem;
+                width : 300px;
                 height : 30px;
                 line-height : 30px;
                 border-bottom:  1px solid #DBDCDC;
@@ -141,6 +141,11 @@
             margin-right : 20px;
             &.selected {
                 border : 2px solid #121313;
+                .icon i {
+                    background : url("#{$img_host}/nav_icon@2x.png") no-repeat right 0; 
+                    background-size : 53px 16px;
+                }
+
             }
 
             .pay-icon {
@@ -163,6 +168,111 @@
               }
             }
             
+        }
+    }
+    .pay-w-ct {
+        margin-top : 30px;
+        li {
+            @include flexbox;
+            @include justify-content(space-between);
+
+            &.hide {
+                display : none;
+            }
+
+        }
+        .item {
+            @include flex-grow(1);
+            border-top : 1px solid #DBDCDC;
+            background-color :  #F0F0F0;
+            height : 200px;
+            @include flexbox;
+            @include align-items(center);
+            padding : 0 20px;
+            .code-img {
+                @include flex-grow(0);
+                @include flex-shrink(0);
+                position : relative;
+                overflow : hidden;
+                width : 160px;
+                height : 160px;
+                padding : 10px;
+                background-color : #fff;
+                margin-right : 20px;
+                &.nopad {
+                    padding : 0;
+                }
+                iframe {
+                    width : 320px;
+                    height : 280px;
+                    transform: scale(0.6, 0.62);
+                    position: absolute;
+                    top: -55px;
+                    left: -88px;
+                }
+            }
+            .txt {
+                font-size : 18px;
+                padding-right : 20px;
+            }
+        }
+        .zfb {
+            .item {
+               width : 49%;
+               @include flex-grow(0);
+               img {
+                margin-top : 40px;
+               }
+            }
+        }
+    }
+    .pay-submit {
+        display : none;
+    }
+    @include phone {
+        .pay-w {
+            ul {
+                li {
+                    float : none;
+                    overflow : hidden;
+                    border : 0;
+                    border-bottom : 1px solid #DBDCDC;
+                    width : 300px;
+                    position : relative;
+                    @include justify-content(flex-start);
+                    .radio-box {
+                        position : absolute;
+                        right : 0;
+                    }
+                    &.selected {
+                        border : 0;
+                        border-bottom : 1px solid #DBDCDC;
+                    }
+                }
+            }
+        }
+        .pay-w-ct {
+            display : none;
+        }
+        .pay-submit {
+            display : block;
+            padding-top : 50px; 
+            padding-bottom : 20px;
+            .act-box {
+                width : 100%;
+                text-align : center;
+                .act {
+                    border : 0;
+                    font-size: 16px;
+                    line-height: 50px;
+                    width : 300px;
+                    height: 50px;
+                    background-color: #121313;
+                    text-align: center;
+                    border-radius: 2px;
+                    color : #fff;
+                }
+            }
         }
     }
 

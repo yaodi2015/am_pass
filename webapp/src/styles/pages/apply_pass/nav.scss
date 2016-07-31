@@ -7,6 +7,18 @@
     height : 70px;
     background-color : #F0F0F0;
     border-top : 1px solid #DBDCDC;
+
+    .icon {
+        text-align : center;
+        .i {
+            display : inline-block;
+            width : 16px;
+            height : 16px;
+            background : url("#{$img_host}/nav_icon@2x.png") no-repeat 0 0; 
+            background-size : 53px 16px;
+        } 
+    }
+
     ul {
         margin : 0 auto;
         width : 568px;
@@ -24,16 +36,7 @@
             @include flexbox;
             @include flex-direction(column);
             @include justify-content(center);
-            .icon {
-                text-align : center;
-                .i {
-                    display : inline-block;
-                    width : 16px;
-                    height : 16px;
-                    background : url("#{$img_host}/nav_icon@2x.png") no-repeat 0 0; 
-                    background-size : 53px 16px;
-                } 
-            }
+           
         }
         li.selected {
             color : #121313;
@@ -44,3 +47,58 @@
         }
     }
 }
+.phone-nav {
+    .n1 {
+        color : #121313;
+        .icon i {
+            background : url("#{$img_host}/nav_icon@2x.png") no-repeat right 0; 
+            background-size : 53px 16px;
+        }
+    }
+}
+
+
+.card-nav {
+    .n2 {
+        color : #121313;
+        .icon i {
+            background : url("#{$img_host}/nav_icon@2x.png") no-repeat right 0; 
+            background-size : 53px 16px;
+        }
+    }
+}
+
+.info-nav {
+    .n3 {
+        color : #121313;
+        .icon i {
+            background : url("#{$img_host}/nav_icon@2x.png") no-repeat right 0; 
+            background-size : 53px 16px;
+        }
+    }
+}
+
+.pay-nav {
+    .n4 {
+        color : #121313;
+        .icon i {
+            background : url("#{$img_host}/nav_icon@2x.png") no-repeat right 0; 
+            background-size : 53px 16px;
+        }
+    }
+}
+
+.finish-nav {
+    .n5 {
+        color : #121313;
+        .icon i {
+            background : url("#{$img_host}/nav_icon@2x.png") no-repeat right 0; 
+            background-size : 53px 16px;
+        }
+    }
+}
+
+
+
+
+

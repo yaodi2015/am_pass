@@ -70,8 +70,35 @@ html ,body {
           }
           &:hover {
             .hover {
-                display : block; 
+                @include flexbox();
+                @include flex-direction(column);
+                @include justify-content(center);
             }
+          }
+
+          .hover {
+            display : none;
+            text-align : center;
+            color : #fff;
+            .tit1 {
+                font-size : 24px;
+                font-weight : bold;
+                line-height : 1em;
+            }
+
+            .hhl {
+                margin : 0 auto;
+                margin-top : 12px;
+                background-color :#57FFD1;
+                width : 30px;
+                height : 1px;
+            }
+            .txt1 {
+                margin-top : 10px;
+                font-size : 14px;
+                line-height : 24px;
+            }
+
           }
 
           @include pad {

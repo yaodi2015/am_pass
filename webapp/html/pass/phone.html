@@ -1,4 +1,4 @@
-<div class="m-view phone-view hide">
+<div class="m-view phone-view">
   <div class="phone-nav">
     <!--#include file="nav.html" -->
   </div>  
@@ -13,14 +13,17 @@
     </div>  
     <div class="phone-ct">
       <div class="pn-box"> 
-          <input type="text" class="inp" >
-          <button class="send-code">验证码</div>
+        <input type="tel" class="inp" 
+        ng-model="phone"  
+        ng-required="true"  
+        ng-pattern="/^(13|15|17|18|14)\d{9}$/"  >
+        <button class="send-code {{sendStatus}}"  ng-click="sendCode($event)">{{codeText}}</div>
       </div>
       <div class="code-box"> 
-          <input type="text" class="inp"> 
+          <input type="tel" ng-model="code"  ng-required="true"  placeholder="输入验证码" class="inp"> 
       </div>
       <div class="act-box">
-        <button class="act">开始申请</button>
+        <button class="act" ng-click="startLogin($event)">开始申请</button>
       </div>
     </div>
   </div>  

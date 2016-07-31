@@ -1,5 +1,5 @@
-<div class="m-view pay-view">
-    <div class="card-nav">
+<div class="m-view pay-view ">
+    <div class="pay-nav">
       <!--#include file="nav.html" -->
     </div>  
     <div class="view-content">
@@ -42,38 +42,51 @@
             <div class="pay-w">
               <div class="tt">选择支付方式</div>
               <ul>
-                <li class="wx"><div class="pay-icon"></div><div class="txt">微信支付</div>
+                <li class="wx" ng-class="{'wx':'selected'}[payWay]" ng-click="selectPayway($event,'wx')"><div class="pay-icon"></div><div class="txt">微信支付</div>
                     <div class="radio-box">
                       <div class="icon"><i class="i"></i></div>   
                     </div>
                 </li>
-                <li class="zfb"><div class="pay-icon"></div><div class="txt">支付宝支付</div>
+                <li  class="zfb" 
+                  ng-if="!isWx" 
+                  ng-class="{'zfb':'selected'}[payWay]" ng-click="selectPayway($event,'zfb')"
+                  ><div class="pay-icon"></div><div class="txt">支付宝支付</div>
                     <div class="radio-box">
                       <div class="icon"><i class="i"></i></div>   
                     </div>
                 </li>
               </ul>  
             </div>
-            <div class="pay-w-ct">
+            
+            <div class="pay-w-ct" >
               <ul>
-                <li>
+                <li ng-class="{'zfb':'hide'}[payWay]">
                   <div class="item">
-                    <div class="code-img"><img src="" ></div>
+                    <div class="code-img"><qrcode version="5" error-correction-level="M" size="140" data="{{wxPayInfo}}"></qrcode></div>
                     <div class="txt">使用手机微信扫描左侧二维码进行支付</div>
                   </div>  
                 </li>
-                <li>
+                <li class="zfb" 
+                  ng-if="!isWx" 
+                  ng-class="{'wx' : 'hide'}[payWay]">
                   <div class="item">
-                    <div class="code-img"><img src="" ></div>
-                    <div class="txt">使用网页版支付宝付款</div>
+                    <div class="code-img nopad"><a href="{{aliPayInfoPc}}"><img width=156 height=83 src="/webapp/images/pc_zfb@2x.png" ></a></div>
+                    <div class="txt"><a href="{{aliPayInfoPc}}">使用网页版支付宝付款</a></div>
                   </div>  
                   <div class="item">
-                    <div class="code-img"><img src="" ></div>
+                    <div class="code-img">
+                      <iframe src="{{aliPayInfoQrcode | trusted}}" frameBorder="0" ></iframe>
+                    </div>
                     <div class="txt">使用手机支付宝扫描左侧二维码支付</div>
                   </div>  
                 </li>
               </ul>  
             </div>
+            <div class="pay-submit">
+              <div class="act-box">
+                <button class="act" ng-click="phonePay()">提交</button>
+              </div>
+            </div>  
           </div>  
       </div>  
     </div>

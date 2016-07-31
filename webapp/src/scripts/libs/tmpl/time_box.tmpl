@@ -1,0 +1,35 @@
+<div class="m-time-box" >
+     <div class="m-time-box-inner animated slideInUp">
+         <div class="top-bar">
+             <div class="tb-inner">
+                <div class="tb-rt js-complete">
+                    <span class="cfr">确认</span>
+                </div>
+                <div class="tb-lf js-cancel">
+                    <span class="cancel">取消</span>
+                </div>
+             </div>
+         </div>
+        <div class="tech-panel js-tech">
+        </div>
+        <div class="shop-panel js-shop hide">
+        </div>
+        <div class="times-wrapper js-times">
+            <div class="m-time-nav">
+                <ol>
+                {@each date as it,index}
+                    <li data-date="${it.time}" data-ind=${index}>
+                        <div class="inn">${it.week}</div>
+                        <p class="date">${it.date}</p>
+                    </li>
+                {@/each}
+                </ol>
+            </div>
+            <div class="m-times">
+                <div class="m-times-inner js-times-inner">
+                    $${time_html}
+                </div>
+            </div>
+        </div>
+     </div>
+</div>

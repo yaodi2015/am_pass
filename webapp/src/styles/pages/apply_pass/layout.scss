@@ -8,5 +8,19 @@
         padding : 0 6px;
     }
 
+    .validation-valid {
+    }
+
+    .validation-invalid {
+        background-color: #FFF6F6;
+        color: #9F3A38;
+        box-shadow: none;
+        line-height : 1.5em;
+        font-size : 12px;
+    } 
+
+    ._720kb-datepicker-calendar {
+        padding-bottom : 0;
+    }
 
 }

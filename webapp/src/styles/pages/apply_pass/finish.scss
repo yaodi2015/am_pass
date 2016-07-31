@@ -1,0 +1,241 @@
+
+@import "../../libs/flex.scss";
+@import "../../libs/config.scss";
+@import "../../libs/func.scss";
+@import "../../libs/css3-mixins.scss";
+
+
+
+.finish-view {
+    
+    .finish-pay {
+        width : 824px;
+        margin : 0 auto;
+        @include pad {
+            width : 728px;
+        }
+
+        @include phone {
+            width : 3rem;
+        }
+    
+    }
+
+
+    .finish-pay {
+        padding-top : 30px;
+        text-align : center;
+        .icon {
+            width : 52px;
+            height : 52px;
+            display : inline-block;
+            background : url("#{$img_host}/finish_pay@2x.png") no-repeat 0 0;
+            background-size : 100%;
+
+        }
+        .tit {
+            font-family: NexaBold;
+            font-size: 24px;
+            color: #121313;
+            text-shadow: 0px 0px 34px rgba(255,255,255,0.50);
+            margin-top : 20px;
+        }
+        .txt {
+            font-weight : lighter;
+            margin-top : 10px;
+        }
+        .act-box {
+            margin-top : 40px;
+        }
+        .act {
+            font-weight : lighter;
+            border :1px solid #121313;
+            font-size: 16px;
+            line-height: 50px;
+            width : 200px;
+            height: 50px;
+            text-align: center;
+            border-radius: 2px;
+            color : #121313;
+            background-color : #fff;
+        }
+    
+    }
+
+}
+
+.app-download {
+    width : 100%;
+    position : relative;
+    .main-bg {
+        position : absolute;
+        top : 1rem;
+        left : 0;
+        /* Rectangle 503: */
+        width : 70%;
+        height : 400px;
+        background-image: linear-gradient(-180deg, #FFFFFF 0%, #F4F4F4 100%);
+    }
+    @include phone {
+        .main-bg {
+            display : none;
+        }
+    }
+    .down-panel {
+        position : relative;
+        z-index : 10;
+        margin : 30px auto 0;
+        overflow : hidden;
+        width : 6.4rem;
+        .ct {
+            float:right;
+            width : 50%;
+        }
+        .img-box {
+            float : left;
+            width : 50%;
+            .img {
+                width : 3.2rem;
+                img { width : 100%;}
+            }
+        }
+
+        .ct {
+            
+            .tit {
+                font-size : 24px;
+                font-weight : normal;
+                text-align : center;
+            }
+            .txt {
+                color : #262626;
+                text-align : center;
+                margin-top : 14px;
+            }
+            .i {
+                width : 15px;
+                height : 15px;
+                display : inline-block;
+                vertical-align : -2px;
+                margin-right : 5px;
+            }
+            .apple {
+                background : url("#{$img_host}/apple@2x.png") no-repeat 0 0;
+                width : 13px;
+                background-size : 100%;
+            }
+            .android {
+                background : url("#{$img_host}/android@2x.png") no-repeat 0 0;
+                width : 13px;
+                background-size : 100%;
+            }
+            .hhl {
+                background-color :#57FFD1;
+                width : 50px;
+                height : 3px;
+                margin : 10px auto 0;
+            }
+            .plat {
+                overflow : hidden;
+                width : 240px;
+                height : 18px;
+                line-height : 18px;
+                margin : 20px auto 0;
+                li {
+                    width : 50%;
+                    float : left;
+                    font-size : 12px;
+                    color : #888;
+                }
+            }
+            .download {
+                color : #fff;
+                display : block;
+                font-size : 16px;
+                background: #121313;
+                box-shadow: 0px 6px 20px 0px rgba(255,255,255,0.60);
+                border-radius: 2px;
+                width : 200px;
+                height : 50px;
+                line-height : 50px;
+                margin : 20px auto 0;
+                text-align : center;
+            }
+
+            .normal {
+                padding-top : 120px;
+                &-ct {
+                    padding-left : 40px;
+                }
+                .tit {
+                    text-align : left;
+                }
+                .hhl {
+                    margin-left : 0;
+                }
+                .txt {
+                    text-align : left;
+                }
+                .plat {
+                    margin-left : 0;
+                }
+                .download {
+                    margin-left : 0;
+                }
+                .code {
+                    width: 100px;
+                    height : 100px;
+                    margin-top : 20px;
+                    border : 1px solid #ccc;
+                    img {
+                        width : 100%;
+                        height : 100%;
+                    }
+                }
+            }
+        }
+        .phone {
+            display : none;
+        }
+        .normal {
+            display : block;
+        }
+
+        @include phone {
+            display : block;
+            .ct , .img-box {
+                float : none;
+            }
+            .phone {
+                display : block;
+            }
+            .normal {
+                display : none;
+            }
+            .ct {
+                margin-bottom : 24px;
+                .tit {
+                    line-height : 1em;
+                    margin-top : 30px;
+                }
+                .hhl {
+                    margin : 0 auto;
+                    margin-top : 10px;
+                }
+            }
+            .img-box {
+                padding-bottom : 0.6rem;
+            }
+        }
+    
+    }
+
+
+@include phone {
+    .footer {
+        display : none;
+    }
+}
+
+
+}
