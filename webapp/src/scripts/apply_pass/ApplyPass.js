@@ -1,6 +1,5 @@
 var angular = require("angular");
 var ngRouter = require("angular-route");
-var ngAnimate = require("angular-animate");
 require("angularjs-datepicker");
 require("angular-sanitize");
 require("angular-validation/dist/angular-validation.js");
@@ -8,8 +7,9 @@ require("angular-validation/dist/angular-validation-rule.js");
 
 require("../libs/qrcode.js");
 require("angular-qrcode");
+require("../libs/angular-locale_zh.js");
 
-var ApplyPass = angular.module("ApplyPass", [ngRouter, ngAnimate, 
+var ApplyPass = angular.module("ApplyPass", [ngRouter, 
     '720kb.datepicker', 
     //'validation' , 'validation.rule',
     'monospaced.qrcode', 'ngSanitize']);

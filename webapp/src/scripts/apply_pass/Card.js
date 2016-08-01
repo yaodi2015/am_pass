@@ -19,7 +19,6 @@ function ($scope, $http, $location) {
         $scope.username = info.cardName;
         $scope.selectNum = info.cardNumber;
         $scope.numbers = [{num : info.cardNumber , selected : true }];
-        $scope.notShowChange = true;
       } else {
         initDefaultData();
       }
@@ -63,7 +62,7 @@ function ($scope, $http, $location) {
       return;
     }
     if (!$scope.username) {
-      pop.tip("请输入姓名");
+      pop.tip("请输入自定义英文名称");
       return;
     }
 

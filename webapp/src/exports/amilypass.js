@@ -4,7 +4,8 @@ require("../scripts/libs/swiper.jquery.js");
 
 $(function() {
   var $num = $("#swiper-num");
-  $("#swiper").swiper({
+  var $swiper= $("#swiper");
+  var swp = $swiper.swiper({
     autoplayDisableOnInteraction : false,
     touchMoveStopPropagation : false,
     preloadImages: true,
@@ -20,6 +21,15 @@ $(function() {
       $num.text(act_ind +"/5");
     }
   });
+
+  
+  $swiper.on("mouseover",function() {
+    swp.stopAutoplay();
+  })
+  $swiper.on("mouseout",function() {
+    swp.startAutoplay();
+  })
+
 
 });
 

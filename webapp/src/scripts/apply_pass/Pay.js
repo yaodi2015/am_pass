@@ -22,6 +22,23 @@ function ($scope, $http, $location, $rootScope) {
   if (!$rootScope.stopWatchPay) {
     $rootScope.stopWatchPay = stopWatchPay;
   }
+  
+  $http.post("/server/pass/getInfo.htm",JSON.stringify({
+    uin : Utils.getUin()
+  })).then(function(rs){
+    var data = rs.data;
+    if (data.ret === 0 ) {
+      var info = data.info; 
+      for (var key in info) {
+        $scope[key] = info[key];
+      }
+    } else {
+      pop.tip("获取卡号信息失败,请刷新重试");
+    }
+
+  }).catch(function() {
+    pop.tip("网络或者服务器异常，请刷新重试");
+  });
 
 
   $scope.isWx = isWx;

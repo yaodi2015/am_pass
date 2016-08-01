@@ -17,9 +17,9 @@
                 <span ng-show="infoForm.name.$dirty && infoForm.name.$error.required"><p class="validation-invalid">姓名不能为空</p></span>
                 <span ng-show="infoForm.name.$dirty && infoForm.name.$error.maxlength"><p class="validation-invalid">姓名长度不能超过20个字</p></span>
                 
-                <div class="sex-it" ng-class="{ 1 : 'woman'  , 2: 'man'  }[sex]" ng-model="sex" ng-click="selectSex($event);"  >
-                  <a href="javascript:;" class="sex1" data-sex=1  >女士</a>
-                  <a href="javascript:;" class="sex2" data-sex=2 >先生</a>
+                <div class="sex-it" ng-class="{ 0 : 'woman'  , 1: 'man'  }[sex]" ng-model="sex" ng-click="selectSex($event);"  >
+                  <a href="javascript:;" class="sex1" data-sex=0  >女士</a>
+                  <a href="javascript:;" class="sex2" data-sex=1 >先生</a>
                 </div>
               </div>
             </div>  

@@ -1,13 +1,1 @@
-@import '../styles/libs/reset.scss';
-@import '../styles/mods/header.scss';
-@import '../styles/mods/main.scss';
-@import '../styles/mods/footer.scss';
-@import '../styles/pages/apply_pass/layout.scss';
-@import '../styles/pages/apply_pass/nav.scss';
-@import '../styles/pages/apply_pass/phone.scss';
-@import '../styles/pages/apply_pass/card.scss';
-@import '../styles/pages/apply_pass/info.scss';
-@import '../styles/pages/apply_pass/pay.scss';
-@import '../styles/pages/apply_pass/finish.scss';
-@import '../styles/pages/apply_pass/act_area.scss';
-@import '../../../node_modules/angularjs-datepicker/dist/angular-datepicker.min.css';
+require("../styles/pages/apply_pass/index.scss");

@@ -7,6 +7,7 @@ var Observer = require("event");
 var Utils = require("./Utils");
 
 
+
 var BJBUSI = [
   "三里屯","望京","国贸","大望路","朝外大街","亚运村","王府井/东单","亮马桥/三元桥",
   "双井","五道口","西单","崇文门","中关村","东直门"
@@ -34,6 +35,9 @@ function ($scope, $http, $location, $injector) {
         $scope[key] = info[key];
       }
       $scope.actArea = $scope.actionZone ? $scope.actionZone.split(",") : [];
+      $scope.longHabitat = $scope.longHabitat || "北京";
+      $scope.sensitive = $scope.sensitive || 0;
+      $scope.fertilityState =  $scope.fertilityState || 3;
 
     } else {
       initDefaultData();
@@ -55,12 +59,12 @@ function ($scope, $http, $location, $injector) {
   $scope.selectSex = function(event) {
     var t ;
     if (t = event.target.getAttribute("data-sex")) {
-      $scope.sex = t;     
+      $scope.sex = t*1;     
     }
   }
 
   $scope.selectYesSens = function(event, sens) {
-    $scope.sensititive = sens;
+    $scope.sensitive = sens;
   }
   $scope.selectHuaiYun = function(event, huaiyun) {
     $scope.fertilityState = huaiyun; 
@@ -87,9 +91,9 @@ function ($scope, $http, $location, $injector) {
   }
   
   function initDefaultData() {
-    $scope.sex = 1;
-    //$scope.sensitive = 0;
-    //$scope.fertilityState = 1;
+    $scope.sex = 0;
+    $scope.sensitive = 0;
+    $scope.fertilityState = 3;
     $scope.longHabitat = "北京";
     $scope.birthday = "1990-01-01"
     $scope.actArea = [];

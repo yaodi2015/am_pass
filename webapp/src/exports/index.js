@@ -2,8 +2,8 @@ var $ = require("zepto");
 require("../scripts/libs/swiper.jquery.js"); 
 
 $(function() {
-
-  $("#swiper").swiper({
+  var $swiper= $("#swiper");
+  var swp = $swiper.swiper({
       autoplayDisableOnInteraction : false,
       touchMoveStopPropagation : false,
       preloadImages: true,
@@ -13,5 +13,12 @@ $(function() {
       onSlideChangeEnd : function(swiper){
       }
     });
+
+  $swiper.on("mouseover",function() {
+    swp.stopAutoplay();
+  })
+  $swiper.on("mouseout",function() {
+    swp.startAutoplay();
+  })
 
 });
