@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Life">
   <head>
     <!--#set var="header_cls" value="header-wrap" -->
     <meta charset="utf-8">
@@ -13,8 +13,9 @@
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="../src/exports/libs/common.js"></script>
+    <script src="../src/angular.min.js"></script>
   </head>
-  <body>
+  <body ng-controller="LifeList">
     <!--#include file="header.html" -->
     <main class="main">
       <div class="intro-box">
@@ -29,90 +30,39 @@
       </div>
       <div class="detail-box">
         <div class="detail-box-ct" id="item-box">
-          <div class="item" > 
+          <div class="item" ng-repeat="item in lifelist track by $index" > 
             <div class="ct">  
               <div class="img-box">
-                <img src="../images/life1@2x.jpg">
+                <img src="{{item.img}}">
               </div>  
               <div class="brief">
-                <h3 class="tit">Déjà vu Coffee</h3>
+                <h3 class="tit">{{item.title}}</h3>
                 <div class="hicon"></div>
                 <div class="txt">
-                  与名字一样充满着似曾相识的气息，店内摆放的物品可以让我们穿越到各个年代。
+                  {{item.desc}}
                 </div>  
               </div>  
             </div>
             <div class="hover">
               <div class="hct">
-                <div class="tit1">SALE</div>
+                <div class="tit1">{{item.title2}}</div>
                 <div class="hhl"></div>
-                <div class="txt1">冰卡布奇诺 or 冰美式无限续杯</div>
+                <div class="txt1">{{item.desc2}}</div>
               </div>  
             </div>  
           </div>
-          <div class="item" > 
-            <div class="ct">  
-              <div class="img-box">
-                <img src="../images/1111@2x.jpg">
-              </div>  
-              <div class="brief">
-                <h3 class="tit">Unological Poem</h3>
-                <div class="hicon"></div>
-                <div class="txt">
-                  Book of Deer是苏格兰现存最古老的手稿，颇有诗意的名字带出了设计师Eilidh Ho希望品牌呈现的梦幻感觉。
-                </div>  
-              </div>  
-            </div>
-            <div class="hover">
-            </div>  
-          </div>
-          <div class="item" > 
-            <div class="ct">  
-              <div class="img-box">
-                <img src="../images/1111@2x.jpg">
-              </div>  
-              <div class="brief">
-                <h3 class="tit">Book of Deer</h3>
-                <div class="hicon"></div>
-                <div class="txt">
-                  Book of Deer是苏格兰现存最古老的手稿，颇有诗意的名字带出了设计师Eilidh Ho希望品牌呈现的梦幻感觉。
-                </div>  
-              </div>  
-            </div>
-            <div class="hover">
-            </div>  
-          </div>
-          <div class="item" > 
-            <div class="ct">  
-              <div class="img-box">
-                <img src="../images/1111@2x.jpg">
-              </div>  
-              <div class="brief">
-                <h3 class="tit">Book of Deer</h3>
-                <div class="hicon"></div>
-                <div class="txt">
-                  Book of Deer是苏格兰现存最古老的手稿，颇有诗意的名字带出了设计师Eilidh Ho希望品牌呈现的梦幻感觉。
-                </div>  
-              </div>  
-            </div>
-            <div class="hover">
-            </div>  
-          </div>
-
-
-
         </div>  
       </div>
       <div class="ai-pager">
         <ul>
-          <li><a class="selected" href="#">1</a></li>
-          <li><a class="" href="#">2</a></li>
-          <li><a class="" href="#">3</a></li>
-          <li><a class="" href="#">4</a></li>
-          <li><a class="" href="#">5</a></li>
-          <li><span class="">...</span></li>
-          <li><a class="" href="#">20</a></li>
-          <li><span href="#">/</span></li>
+          <li class="selected"><div class="bg"></div><a class="" href="#">1</a></li>
+          <li class="hide"><div class="bg"></div><a class="" href="#">2</a></li>
+          <li class="hide"><div class="bg"></div><a class="" href="#">3</a></li>
+          <li class="hide"><div class="bg"></div><a class="" href="#">4</a></li>
+          <li class="hide"><div class="bg"></div><a class="" href="#">5</a></li>
+          <li class="hide"><div class="bg"></div><span class="">...</span></li>
+          <li class="hide"><div class="bg"></div><a class="" href="#">20</a></li>
+          <li class="hide"><div class="bg"></div><span href="#">/</span></li>
         </ul>  
       </div>  
     </main>

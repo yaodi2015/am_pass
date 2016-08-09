@@ -2,6 +2,7 @@
 @import "../../libs/media-queries.scss";
 @import "../../libs/func.scss";
 @import "../../libs/config.scss";
+@import "../../libs/swiper.scss";
 
 
 .apply-box {
@@ -78,6 +79,7 @@
                     }
                 }
                 &.diva {
+                    background-color : #f0f0f0;
                     i {
                         background : url("#{$img_host}/apply_type_icon2@2x.png") no-repeat 0 0;
                         background-size : 100% 100%;
@@ -132,12 +134,32 @@
     .apply-imgbox {
         float : left;
         width : 471px;
+        .imgbox {
+            position : relative;
+        }
         .img {
             width :100%;
             height : 320px;
             overflow : hidden;
             img {
                 width : 100%;
+            }
+        }
+        .num {
+            position : absolute;
+            width : 100%;
+            height : 0.33rem;
+            text-align : center;
+            font-size : 24px;
+            font-family : "Lucida Bright";
+            z-index : 12;
+            bottom : -10px;
+
+            @include pad {
+                bottom : -10px;
+            }
+            @include phone {
+                bottom : -22px;
             }
         }
         @include pad {

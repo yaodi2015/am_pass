@@ -17,8 +17,8 @@
                 <span ng-show="infoForm.name.$dirty && infoForm.name.$error.required"><p class="validation-invalid">姓名不能为空</p></span>
                 <span ng-show="infoForm.name.$dirty && infoForm.name.$error.maxlength"><p class="validation-invalid">姓名长度不能超过20个字</p></span>
                 
-                <div class="sex-it" ng-class="{ 0 : 'woman'  , 1: 'man'  }[sex]" ng-model="sex" ng-click="selectSex($event);"  >
-                  <a href="javascript:;" class="sex1" data-sex=0  >女士</a>
+                <div class="sex-it" ng-class="{ 2 : 'woman'  , 1: 'man'  }[sex]" ng-model="sex" ng-click="selectSex($event);"  >
+                  <a href="javascript:;" class="sex1" data-sex=2  >女士</a>
                   <a href="javascript:;" class="sex2" data-sex=1 >先生</a>
                 </div>
               </div>
@@ -139,11 +139,11 @@
             1. 您属于敏感体质吗？
             </div> 
             <div class="tt-ct mingan">
-              <div class="radio-box" ng-class="{ 0 : 'selected'}[sensitive]"   ng-click="selectYesSens($event, 0)">
+              <div class="radio-box" ng-class="{ 1 : 'selected'}[sensitive]"   ng-click="selectYesSens($event, 1)">
                 <div class="icon"><i class="i"></i></div>   
                 <div class="tt">是</div>
               </div>
-              <div class="radio-box" ng-class="{ 1 : 'selected'}[sensitive]"  ng-click="selectYesSens($event, 1)">
+              <div class="radio-box" ng-class="{ 0 : 'selected'}[sensitive]"  ng-click="selectYesSens($event, 0)">
                 <div class="icon"><i class="i"></i></div>   
                 <div class="tt">否</div>
               </div>

@@ -3,8 +3,8 @@ var Store = require("../libs/store.js");
 var pop = require("../libs/pop.js");
 var Cookie = require("../libs/cookies.js");
 
-var Phone = ApplyPass.controller("Phone", ["$scope", "$http", "$location",  
-    function ($scope, $http, $location) {
+var Phone = ApplyPass.controller("Phone", ["$scope", "$http", "$location", "$rootScope", 
+    function ($scope, $http, $location, $rootScope) {
 
   $scope.codeText = "验证";
   $scope.phone = "";
@@ -43,6 +43,7 @@ var Phone = ApplyPass.controller("Phone", ["$scope", "$http", "$location",
     })).then(function(res) {
       var data = res.data;
       if (data.ret === 0 ) {
+        $rootScope.userData = data;
         setCookie(data, $location.host());
         setStore($scope.phone, data);
         redirect(data.status, $location);

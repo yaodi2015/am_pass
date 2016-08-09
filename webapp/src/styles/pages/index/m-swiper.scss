@@ -26,6 +26,48 @@
         height : 100%;
         margin : 0 auto;
     }
+    .swiper-container {
+        .arrow-box {
+            position : relative;
+            display : none;
+            z-index : 100;
+            width : 1024;
+            margin : 0 auto;
+            height : 0px;
+            @include pad {
+              width : $pad_w;
+            }
+            @include phone {
+              width : 100%;
+            }
+        }
+        &:hover {
+            .arrow-box {
+                display : block;
+            }
+        }
+        .sw-lf-arrow , .sw-rt-arrow {
+            position : absolute ;
+            top : 190px;
+            left : -80px;
+            i {
+                display : inline-block;
+                width : 60px;
+                height : 60px;
+                background : url("#{$img_host}/L1@2x.png") no-repeat 0 0;
+                background-size : 100% 100%;
+            }
+        }
+        .sw-rt-arrow {
+            left : auto;
+            right : -80px;
+            i {
+                background : url("#{$img_host}/R1@2x.png") no-repeat 0 0;
+                background-size : 100% 100%;
+            }
+        }
+    }
+
     @include pad {
         .swiper-container {
             height : 4rem;

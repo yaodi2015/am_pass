@@ -21,4 +21,14 @@ $(function() {
     swp.startAutoplay();
   })
 
+  $swiper.find(".js-lf").click(function(e) {
+    swp.slidePrev();
+  });
+
+  $swiper.find(".js-rt").click(function(e) {
+    swp.slideNext();
+  });
+
+
+
 });

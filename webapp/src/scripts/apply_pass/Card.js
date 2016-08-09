@@ -3,6 +3,8 @@ var ApplyPass = require("./ApplyPass.js");
 var Store = require("../libs/store.js");
 var pop = require("../libs/pop.js");
 var Utils = require("./Utils.js");
+var dateFormat = require("../libs/date_format.js");
+var oneYear = 1000 * 3600 * 24 * 365;
 
 ApplyPass.controller("Card", ["$scope", "$http", "$location",  
 
@@ -15,10 +17,17 @@ function ($scope, $http, $location) {
     if (data.ret === 0 ) {
       var info = data.info;
       if (info) {
+        var createTime = info.createTime;
         $scope.changeNum = 1;
         $scope.username = info.cardName;
         $scope.selectNum = info.cardNumber;
         $scope.numbers = [{num : info.cardNumber , selected : true }];
+        if (createTime) {
+          $scope.cardValid = dateFormat.format(new Date(createTime * 1000 + oneYear ) , "MM/YYYY");
+        } else {
+          $scope.cardValid = "一年";
+        }
+
       } else {
         initDefaultData();
       }
@@ -53,6 +62,9 @@ function ($scope, $http, $location) {
         it.selected = false;
       }
     });
+    if ($scope.timestamps) {
+      $scope.cardValid = dateFormat(new Date(data.timestamps * 1000 + oneYear),  "MM/YYYY");
+    }
   }
 
   $scope.nextStep = function(event) {
@@ -105,6 +117,7 @@ function ($scope, $http, $location) {
           return {num : num , selected : false};
         });
         $scope.selectNum = "";
+        $scope.timestamps = data.timestamps;
 
       } else {
         pop.tip("获取卡号失败");

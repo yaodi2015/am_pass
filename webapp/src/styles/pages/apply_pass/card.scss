@@ -4,18 +4,20 @@
 .card-view {
 
     .view-content {
-        width : 824px;
-        overflow : hidden;
-        margin : 0 auto;
-        @include flexbox;
-        @include justify-content(space-between);
-        @include pad {
-            width : 728px;
-        }
+        .card-form {
+            width : 824px;
+            overflow : hidden;
+            margin : 0 auto;
+            @include flexbox;
+            @include justify-content(space-between);
+            @include pad {
+                width : 728px;
+            }
 
-        @include phone {
-            width : 3rem; 
-            @include justify-content(center);
+            @include phone {
+                width : 3rem; 
+                @include justify-content(center);
+            }
         }
 
         .lf-ct {
@@ -31,18 +33,56 @@
             @include flex-direction(column);
             @include justify-content(center);
             .img-box {
+                margin-top : -128px;
+                text-align : center;
                 .img {
-                    background : url("#{$img_host}/pass_card_pc@2x.jpg") no-repeat 0 0;
+                    position : relative;
+                    display : inline-block;
+                    text-align : left;
+                    background : url("#{$img_host}/pad_empty_card@2x.jpg") no-repeat 0 0;
                     background-size : 100%;
-                    width : 504px;
-                    height : 314px;
+                    width : 353px;
+                    height : 205px;
+                    color : #858595;
+                    .card-no {
+                        position : absolute;
+                        top : 48px;
+                        left : 28px;
+                        width : 120px;
+                        height : 24px;
+                        font-size : 20px;
+                        line-height : 24px;
+                    }
+                    .card-name {
+                        position : absolute;
+                        right : 28px;
+                        top : 48px;
+                        width : 120px;
+                        text-align : right;
+                        height : 24px;
+                        font-size : 20px;
+                        line-height : 24px;
+                        text-overflow:ellipsis;
+                        white-space : nowrap;
+                        overflow : hidden;
+                    }
+                    .card-valid {
+                        position : absolute;
+                        right : 78px;
+                        bottom : 32px;
+                        width : 80px;
+                        text-align : right;
+                        height : 24px;
+                        font-size : 20px;
+                        line-height : 24px;
+                    }
                 }
                 @include pad {
                     .img {
-                        background : url("#{$img_host}/pass_card_pad@2x.jpg") no-repeat 0 0;
+                        background : url("#{$img_host}/pad_empty_card@2x.jpg") no-repeat 0 0;
                         background-size : 100%;
-                        width : 409px;
-                        height : 256px;
+                        width : 353px;
+                        height : 205px;
                     }
                 }
             }
@@ -141,11 +181,51 @@
             @include phone {
                 .img-box {
                     display : block;
+                    text-align : center;
+                    margin-top : 20px;
                     .img {
-                        background : url("#{$img_host}/pass_card_phone@2x.jpg") no-repeat 0 0;
+                        background : url("#{$img_host}/phone_empty_card@2x.jpg") no-repeat 0 0;
                         background-size : 100% 100%;
-                        width : 320px;
-                        height : 200px;
+                        width : 280px;
+                        height : 160px;
+                        position : relative;
+                        color : #858595;
+                        display : inline-block;
+                        text-align : left;
+
+                        .card-no {
+                            position : absolute;
+                            top : 36px;
+                            left : 24px;
+                            width : 120px;
+                            height : 24px;
+                            font-size : 16px;
+                            line-height : 24px;
+                        }
+                        .card-name {
+                            position : absolute;
+                            right : 24px;
+                            top : 36px;
+                            width : 120px;
+                            text-align : right;
+                            height : 24px;
+                            font-size : 14px;
+                            line-height : 24px;
+                            text-overflow:ellipsis;
+                            white-space : nowrap;
+                            overflow : hidden;
+                        }
+                        .card-valid {
+                            position : absolute;
+                            right : 60px;
+                            bottom : 28px;
+                            width : 80px;
+                            text-align : right;
+                            height : 24px;
+                            font-size : 16px;
+                            line-height : 24px;
+                        }
+
                     }
                 }
             } 

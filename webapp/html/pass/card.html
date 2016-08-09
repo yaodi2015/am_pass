@@ -3,9 +3,14 @@
     <!--#include file="nav.html" -->
   </div>  
   <div class="view-content">
+    <form name="cardForm" class="card-form" novalidate>
     <div class="lf-ct">
       <div class="img-box">
-        <div class="img"></div>
+        <div class="img">
+          <div class="card-no">{{selectNum}}</div>
+          <div class="card-name">AMILY</div>
+          <div class="card-valid">{{cardValid}}</div>
+        </div>
       </div>  
     </div>
     <div class="m-ct">
@@ -33,16 +38,23 @@
       </div>  
       <div class="name-box">
         <div class="name"> 
-          <input type="text" class="inp" ng-model="username" ng-pattern="/^\w+$/" ng-required="true" placeholder="NAME"> 
+          <input type="text" class="inp" ng-model="username" name="username" ng-pattern="/^([a-zA-Z]+\s?)+$/" ng-required="true" ng-maxlength="20" placeholder="NAME"> 
+          <span ng-show="cardForm.username.$dirty && cardForm.username.$error.required"><p class="validation-invalid">自定义英文名称不能为空</p></span>
+          <span ng-show="cardForm.username.$dirty && cardForm.username.$error.pattern"><p class="validation-invalid">只能输入英文名称</p></span>
+          <span ng-show="cardForm.username.$dirty && cardForm.username.$error.maxlength"><p class="validation-invalid">英文名称长度不能超过20个字母</p></span>
         </div>
         <div class="img-box">
-          <div class="img"></div>
+          <div class="img">
+            <div class="card-no">{{selectNum}}</div>
+            <div class="card-name">AMILY</div>
+            <div class="card-valid">{{cardValid}}</div>
+          </div>
         </div>  
         <div class="act-box">
           <button class="act act-use" ng-click="nextStep($event)">下一步</button>
         </div>
-
       </div>  
     </div> 
+  </form>
   </div>  
 </div>

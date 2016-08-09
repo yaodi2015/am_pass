@@ -19,7 +19,7 @@ $(function() {
       if ( act_ind == 1 || (act_ind == (len+1))) {
         act_ind = 1;
       }
-      $num.text(act_ind +"/"+ len);
+      $num.text(act_ind +"/"+len);
     }
   });
 
@@ -31,15 +31,6 @@ $(function() {
     swp.startAutoplay();
   })
 
-  
-  $swiper.find(".js-lf").click(function(e) {
-    swp.slidePrev();
-  });
-
-  $swiper.find(".js-rt").click(function(e) {
-    swp.slideNext();
-  });
-
-
 });
+
 

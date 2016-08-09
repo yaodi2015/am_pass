@@ -5,6 +5,7 @@ var pop = require("../libs/pop.js");
 var ActAreaDlg = require("./ActAreaDlg.js");
 var Observer = require("event");
 var Utils = require("./Utils");
+var dateFormat = require("../libs/date_format.js");
 
 
 
@@ -38,6 +39,10 @@ function ($scope, $http, $location, $injector) {
       $scope.longHabitat = $scope.longHabitat || "北京";
       $scope.sensitive = $scope.sensitive || 0;
       $scope.fertilityState =  $scope.fertilityState || 3;
+      $scope.sex = $scope.sex || 2;
+      if (/^\d+$/.test($.trim($scope.birthday))) {
+        $scope.birthday = dateFormat(new Date($scope.birthday * 1000));
+      }
 
     } else {
       initDefaultData();
@@ -92,7 +97,7 @@ function ($scope, $http, $location, $injector) {
   
   function initDefaultData() {
     $scope.sex = 0;
-    $scope.sensitive = 0;
+    $scope.sensitive = 1;
     $scope.fertilityState = 3;
     $scope.longHabitat = "北京";
     $scope.birthday = "1990-01-01"
@@ -100,14 +105,21 @@ function ($scope, $http, $location, $injector) {
   }
 
   function save() {
-    
+    var birthday = $scope.birthday; 
+    if (birthday.match(/\d{4}-\d{2}-\d{2}/)) {
+      var dateStrs = birthday.split("-"); 
+      var date = new Date(dateStrs[0] , dateStrs[1] - 1, dateStrs[2]).getTime() / 1000;
+      brithday = date;
+    }
+
+
     var data = {
       uin : Utils.getUin(),
       step : 2,
       name : $scope.name,
       sex : $scope.sex,
       email : $scope.email,
-      birthday : $scope.birthday,
+      birthday : birthday,
       longHabitat : $scope.longHabitat,
       actionZone : $scope.actArea.join(","),
       phone : $scope.phone,
@@ -120,12 +132,13 @@ function ($scope, $http, $location, $injector) {
       medicalHistory : $scope.medicalHistory
     }
 
-
     $http.post("/server/pass/saveInfo.htm" , JSON.stringify(data))
       .then(function(res) {
           var data = res.data;
           if (data.ret === 0 ) {
+            setTimeout(function() {
             $location.path("/pay");
+            }, 150);
           } else {
             pop.tip("保存失败,请重试");
           }
