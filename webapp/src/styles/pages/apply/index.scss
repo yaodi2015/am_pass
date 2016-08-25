@@ -134,6 +134,9 @@
     .apply-imgbox {
         float : left;
         width : 471px;
+        @include phone {
+            padding-bottom : 50px;
+        }
         .imgbox {
             position : relative;
         }
