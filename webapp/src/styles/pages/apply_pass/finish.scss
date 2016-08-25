@@ -90,10 +90,16 @@
         .ct {
             float:right;
             width : 50%;
+            @include phone {
+                width : 100%;
+            }
         }
         .img-box {
             float : left;
             width : 50%;
+            @include phone {
+                width : 100%;
+            }
             .img {
                 width : 3.2rem;
                 img { width : 100%;}
